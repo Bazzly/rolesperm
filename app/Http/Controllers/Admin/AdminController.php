@@ -44,7 +44,8 @@ class AdminController extends Controller
         return true;
     }
     public function adminDashboard(){
-        return 'this is admin and developer page';
+        $users = user::latest()->paginate(10);
+        return view('admin.index',compact('users'));
     }
     /**
      * Show the form for creating a new resource.
